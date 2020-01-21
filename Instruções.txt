@@ -1,0 +1,16 @@
+Frontend: 
+   - Abra a pasta 'Angular' no Visual Studio code;
+   - No diretório dessa mesma pasta execute o comando 'npm install';
+   - Após a conclusão execute o comando 'ng serve';
+   - O environment já estará apontando para a porta da API;
+   
+Backend:
+   - Abra a solution no Visual Studio;
+   - Aguarde os pacotes serem restaurados;
+   - Execute a API;
+   
+Banco de dados:
+    - Subi o banco em um servidor meu, a API já aponta para esse banco. Não será necessária nenhuma configuração adicional;
+	
+Observações:
+    - Desenvolvi uma solução bem simples, mas a arquitetura do back e do front são robustas para projetos oficiais;
