@@ -8,6 +8,7 @@ namespace Airplane.Domain.SharedRoot.Repository
     {
         void Adicionar(TEntity entity);
         void Atualizar(TEntity t);
+        void Remover(int id);
 
         TEntity BuscarPorId(int id);
         ICollection<TEntity> BuscarTodos();

@@ -1,0 +1,63 @@
+<div class="">
+
+    <div class="col-md-12 form-group">
+        <h4 class="titulo">Consultar Aviões</h4>
+    </div>
+
+    <div class="col-md-12">
+        <div class="col-md-3 AddButtonresponsiveLeft">
+            <button class="stfCorpButton btn btn-primary pull-right" type="button" (click)="modalCriar()">Novo</button>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+        <table mat-table matSortDisableClear [dataSource]="dataSource" matSort multiTemplateDataRows class="mat-elevation-z8 table-striped tbl">
+
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+                <td mat-cell *matCellDef="let element"> {{ element.id }}
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="codigo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Código</th>
+                <td mat-cell *matCellDef="let element"> {{element.codigo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="modelo">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Modelo</th>
+                <td mat-cell *matCellDef="let element"> {{element.modelo}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="quantidadePassageiros">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Qtd. de Passageiros</th>
+                <td mat-cell *matCellDef="let element">{{ element.quantidadePassageiros }} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="dataCriacao">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>Data da Criação</th>
+                <td mat-cell *matCellDef="let element">{{ element.dataCriacao | date: 'dd/MM/yyyy'}}</td>
+            </ng-container>
+
+            <ng-container matColumnDef="acoes">
+                <th mat-header-cell *matHeaderCellDef>Ações</th>
+                <td mat-cell *matCellDef="let element">
+                    <i class="fa fa-pencil blueIcon" title="Editar" aria-hidden="true" (click)="modalEditar(element)"></i>&nbsp;
+                    <i class="fa fa-search blueIcon " title="Visualizar" aria-hidden="true" (click)="modalConsultar(element)"></i>&nbsp;
+                    <i class="fa fa fa-times-circle-o redIcon" title="Excluir" aria-hidden="true" (click)="excluir(element.id)"></i>
+                </td>
+            </ng-container>
+
+            <ng-container matColumnDef="disclaimer">
+                <td mat-footer-cell *matFooterCellDef colspan="7" class="text-center">
+                    <strong>NENHUM REGISTRO ENCONTRADO</strong>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="element-row" [class.expanded-row]="element.expandir"></tr>
+            <tr mat-footer-row *matFooterRowDef="['disclaimer']" class="example-second-footer-row" [hidden]="!exibirFooterGrid()"></tr>
+        </table>
+    </div>
+
+</div>

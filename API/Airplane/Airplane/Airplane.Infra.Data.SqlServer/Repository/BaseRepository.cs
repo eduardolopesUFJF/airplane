@@ -47,5 +47,10 @@ namespace Airplane.Infra.Data.SqlServer.Repository
             return DbSet.ToList();
         }
 
+        public void Remover(int id)
+        {
+            var entity = BuscarPorId(id);
+            DbSet.Remove(entity);
+        }
     }
 }

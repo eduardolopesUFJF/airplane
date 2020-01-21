@@ -53,5 +53,12 @@ namespace Airplane.Api.Controllers
             _baseAirplaneService.Atualizar(airplaneEntity);
             return Ok(airplaneEntity);
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _baseAirplaneService.Remover(id);
+            return Ok(true);
+        }
     }
 }

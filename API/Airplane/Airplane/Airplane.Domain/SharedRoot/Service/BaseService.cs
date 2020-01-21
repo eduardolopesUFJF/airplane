@@ -51,5 +51,10 @@ namespace Airplane.Domain.SharedRoot.Service
             return result;
         }
 
+        public void Remover(int id)
+        {
+            _baseRepository.Remover(id);
+            _unitOfWork.Commit();
+        }
     }
 }
